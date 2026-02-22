@@ -1,0 +1,44 @@
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<!--<bean id = "alien" class = "org.telusko.Alien" scope = "prototype">-->
+    <bean id = "alien" class = "org.telusko.Alien" autowire="byType" >
+<!--        i am saying to spring i want to link them by names-->
+<!--        if i want to have a default value which the spring will inject-->
+<!--        we need a tag called property-->
+        <property name="age" value = "21">
+
+        </property>
+<!--        for assigning values with the help of constructor we can use constructor tag-->
+<!--        <constructor-arg value = "21">-->
+<!--        </constructor-arg>-->
+<!--        <constructor-arg ref ="lap1" index = "1" >-->
+<!--            index is used to tell the sequence of mapping from the constructor like lets say in my constructor we have () int , int , int -->
+<!--            then using type argument we cant solve this so we will have to use index index = "0" , index = "1" , index = "2" like that-->
+<!--            there is also another way we can also use name attribute if we want this to work we have to specify using @constructor properties-->
+<!--        how does it was identifying which value to go to which variable &#45;&#45; with the help of sequence -->
+<!--            like when we created constructor int age was first so constructor tag was used first followed by laptop object -->
+<!--        </constructor-arg>-->
+<!--        we have to wire them or connect the laptop object with the laptop that is created -->
+<!--        <property name="com" ref="com"> </property> when i am specifying this i am creating a wire that is a wire between my alien and laptop what if i want this wiring to be done wutomatically
+we can use autowire in the bean creation tag-->
+<!--    whenever someone asks for alien you have to give the object of what? class = -->
+<!--        <property name="com" ref = "desk"></property>-->
+</bean>
+<!--    how many times we mention the bean in our file we create that many objects -->
+    <bean id = "com1" class = "org.telusko.Laptop" primary = "true">
+        <!--        //here name and reference both are same so when both are same it works-->
+<!--    <bean id = "lap1" class = "org.telusko.Laptop">-->
+    </bean>
+    <bean id = "com2" class = "org.telusko.Desktop" lazy-init="true">
+<!--        when we have two options we can make one primary , primary works only when we have a confusion-->
+
+    </bean>
+
+<!--    LAZY INITIALISATION OF THE BEAN _-->
+
+</beans>
